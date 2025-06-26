@@ -11,6 +11,7 @@ import {
   LuNewspaper,
   LuMessageCircle,
   LuHeart,
+  LuFolderOpen,
 } from "react-icons/lu";
 import type {
   LearnerMenuType,
@@ -51,6 +52,44 @@ const learnerMenu: LearnerMenuType[] = [
     name: "Messagerie",
     link: "/learner/chat",
     icon: LuMessagesSquare,
+  },
+];
+
+const adminMenu: LearnerMenuType[] = [
+  {
+    name: "Tableau de bord",
+    link: "/admin/dashboard",
+    icon: LuRadar,
+  },
+  {
+    name: "Formations",
+    link: "/admin/courses",
+    icon: LuCirclePlay,
+  },
+  {
+    name: "Catégories",
+    link: "/admin/categories",
+    icon: LuFolderOpen,
+  },
+  {
+    name: "Utilisateurs",
+    link: "/admin/users",
+    icon: LuUser,
+  },
+  {
+    name: "Messagerie",
+    link: "/admin/chat",
+    icon: LuMessagesSquare,
+  },
+  {
+    name: "Projets",
+    link: "/admin/project",
+    icon: LuNewspaper,
+  },
+  {
+    name: "Composants UI",
+    link: "/admin/ui-components",
+    icon: LuSettings,
   },
 ];
 
@@ -109,4 +148,4 @@ const apps: AppType[] = [
   },
 ];
 
-export { learnerMenu, profileMenuItems, messages, apps };
+export { learnerMenu, adminMenu, profileMenuItems, messages, apps };

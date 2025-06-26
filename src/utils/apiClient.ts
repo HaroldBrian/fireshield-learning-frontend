@@ -1,93 +1,34 @@
-import axiosInstance from "@/utils/axiosInstance";
+import api from '@/lib/api';
 
-const apiClient = {
-  getAll: async (endpoint: string) => {
-    const controller = new AbortController();
+class ApiClient {
+  async getAll<T>(endpoint: string): Promise<T> {
+    const response = await api.get(endpoint);
+    return response.data.data || response.data;
+  }
 
-    try {
-      const response = await axiosInstance.get(endpoint, {
-        signal: controller.signal,
-      });
-      return response.data;
-    } catch (error) {
-      console.error("Erreur lors de la récupération des données:", error);
-    } finally {
-      controller.abort();
-    }
-  },
-  getById: async (endpoint: string, id: string) => {
-    const controller = new AbortController();
+  async getById<T>(endpoint: string, id: string): Promise<T> {
+    const response = await api.get(`${endpoint}/${id}`);
+    return response.data.data || response.data;
+  }
 
-    try {
-      const response = await axiosInstance.get(`${endpoint}/${id}`, {
-        signal: controller.signal,
-      });
-      return response.data;
-    } catch (error) {
-      console.error("Erreur lors de la récupération de l'élément:", error);
-    } finally {
-      controller.abort();
-    }
-  },
-  create: async (endpoint: string, payload: object) => {
-    const controller = new AbortController();
+  async create<T>(endpoint: string, data: any): Promise<T> {
+    const response = await api.post(endpoint, data);
+    return response.data.data || response.data;
+  }
 
-    try {
-      const response = await axiosInstance.post(endpoint, payload, {
-        signal: controller.signal,
-      });
-      return response.data;
-    } catch (error) {
-      console.error("Erreur lors de la création de l'élément:", error);
-    } finally {
-      controller.abort();
-    }
-  },
-  deleteById: async (endpoint: string) => {
-    const controller = new AbortController();
+  async update<T>(endpoint: string, data: any): Promise<T> {
+    const response = await api.put(endpoint, data);
+    return response.data.data || response.data;
+  }
 
-    try {
-      const response = await axiosInstance.delete(endpoint, {
-        signal: controller.signal,
-      });
+  async patch<T>(endpoint: string, data: any): Promise<T> {
+    const response = await api.patch(endpoint, data);
+    return response.data.data || response.data;
+  }
 
-      return response.data;
-    } catch (error) {
-      console.error("Erreur lors de la suppression de l'élément:", error);
-    } finally {
-      controller.abort();
-    }
-  },
-  update: async (endpoint: string, payload: object) => {
-    const controller = new AbortController();
+  async deleteById(endpoint: string): Promise<void> {
+    await api.delete(endpoint);
+  }
+}
 
-    try {
-      const response = await axiosInstance.put(endpoint, payload, {
-        signal: controller.signal,
-      });
-
-      return response.data;
-    } catch (error) {
-      console.error("Erreur lors de la mise à jour de l'élément:", error);
-    } finally {
-      controller.abort();
-    }
-  },
-  patch: async (endpoint: string, payload: object) => {
-    const controller = new AbortController();
-
-    try {
-      const response = await axiosInstance.patch(endpoint, payload, {
-        signal: controller.signal,
-      });
-
-      return response.data;
-    } catch (error) {
-      console.error("Erreur lors de la modification de l'élément:", error);
-    } finally {
-      controller.abort();
-    }
-  },
-};
-
-export default apiClient;
+export default new ApiClient();

@@ -9,3 +9,4 @@ export * from './api.types';
 export * from './auth.types';
 export * from './video.types';
 export * from './notification.types';
+export * from './category.types';
