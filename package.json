@@ -1,0 +1,60 @@
+{
+  "name": "fireshield-learning",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "author": {
+    "name": "Fireshield security",
+    "url": "https://fireshieldsec.com/"
+  },
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "tsc && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "apexcharts": "^3.45.2",
+    "axios": "^1.10.0",
+    "clsx": "^2.1.0",
+    "glightbox": "^3.2.0",
+    "gumshoejs": "^5.1.2",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.523.0",
+    "next": "^15.3.4",
+    "next-auth": "^4.24.5",
+    "nextjs-toploader": "^1.6.4",
+    "postcss-import": "^16.0.0",
+    "preline": "^2.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "react": "^18.2.0",
+    "react-apexcharts": "^1.4.1",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.50.1",
+    "react-icons": "^5.0.1",
+    "react-query": "^3.39.3",
+    "sonner": "^1.4.0",
+    "swiper": "^11.0.5",
+    "tailwind-merge": "^2.2.1",
+    "yup": "^1.3.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.1.0",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.4",
+    "tailwindcss": "^3.4.1",
+    "tw-colors": "^3.3.1",
+    "typescript": "^5.3.3"
+  }
+}
